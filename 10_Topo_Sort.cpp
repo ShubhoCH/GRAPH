@@ -32,24 +32,6 @@ class Solution{
 	    
 	}
 };
-/*  Function to check if elements returned by user
-*   contains the elements in topological sorted form
-*   V: number of vertices
-*   *res: array containing elements in topological sorted form
-*   adj[]: graph input
-*/
-int check(int V, vector <int> &res, vector<int> adj[]) {
-    vector<int> map(V, -1);
-    for (int i = 0; i < V; i++) {
-        map[res[i]] = i;
-    }
-    for (int i = 0; i < V; i++) {
-        for (int v : adj[i]) {
-            if (map[i] > map[v]) return 0;
-        }
-    }
-    return 1;
-}
 int main() {
     int T;
     cin >> T;
@@ -67,4 +49,23 @@ int main() {
         cout << check(N, res, adj) << endl;
     }
     return 0;
+}
+
+/*  Function to check if elements returned by user
+*   contains the elements in topological sorted form
+*   V: number of vertices
+*   *res: array containing elements in topological sorted form
+*   adj[]: graph input
+*/
+int check(int V, vector <int> &res, vector<int> adj[]) {
+    vector<int> map(V, -1);
+    for (int i = 0; i < V; i++) {
+        map[res[i]] = i;
+    }
+    for (int i = 0; i < V; i++) {
+        for (int v : adj[i]) {
+            if (map[i] > map[v]) return 0;
+        }
+    }
+    return 1;
 }

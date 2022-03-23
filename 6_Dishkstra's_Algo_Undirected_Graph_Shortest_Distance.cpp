@@ -11,6 +11,7 @@ int main(){
 		g[b].push_back(make_pair(a,wt));
 	}	
 	cin >> source;
+	
 	// Dijkstra's algorithm begins from here
 	priority_queue<pair<int,int>,vector<pair<int,int> >,greater<pair<int,int> > > pq;// min-heap ; In pair => (dist,from)
 	vector<int> distTo(n+1,INT_MAX); 	// 1-indexed array for calculating shortest paths; 
